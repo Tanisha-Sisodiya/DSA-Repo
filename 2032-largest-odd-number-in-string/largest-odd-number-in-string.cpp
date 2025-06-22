@@ -8,15 +8,6 @@ public:
                 return sub;
             }
         }
-        // int start = i;
-        // int length = 1;
-        // string sub = num.substr(start, length); 
-        // int num = stoi(sub);
-        // if(num%2 == 1){
-        // Max = max(Max, num);
-        // }
-        // }
-        // string ans = to_string(Max);
         return "";
     }
 };
