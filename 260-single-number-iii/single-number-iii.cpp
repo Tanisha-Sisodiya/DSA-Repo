@@ -1,17 +1,21 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        vector<int>ans;
-        unordered_map<int,int>mp;
+        unsigned int xorAll = 0;
 
-        for(int i = 0; i<nums.size(); i++){
-            mp[nums[i]]++;
+        for (int num : nums)
+            xorAll ^= num;
+
+        unsigned int mask = xorAll & (~xorAll + 1); // safe replacement for -xorAll
+
+        int a = 0, b = 0;
+        for (int num : nums) {
+            if (num & mask)
+                a ^= num;
+            else
+                b ^= num;
         }
-        for(int i = 0; i<nums.size(); i++){
-            if(mp[nums[i]]==1){
-                ans.push_back(nums[i]);
-            }
-        }
-        return ans;
+
+        return {a, b};
     }
 };
