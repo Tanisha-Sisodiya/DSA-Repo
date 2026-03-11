@@ -10,9 +10,11 @@ public:
             pq.pop();
             int x = pq.top();
             pq.pop();
+            if(y!=x){
             pq.push(y-x);
+            }
         }
-        int ans = pq.top();
-        return ans;
+        return pq.empty() ? 0 : pq.top();
+        
     }
 };
